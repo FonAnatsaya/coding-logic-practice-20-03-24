@@ -6,17 +6,15 @@ const find_max_ngram = (text, length) => {
     for (let j = i + 1; j < i + length; j++) {
       newText += text[j];
     }
-    if (newText.length == length) {
-      sub_string[newText] = sub_string[newText] || 0;
-      sub_string[newText]++;
-    }
+    sub_string[newText] = sub_string[newText] || 0;
+    sub_string[newText]++;
   }
-  const maxSub_string_Value = Math.max(...Object.values(sub_string));
-  const maxSub_string_Keys = Object.keys(sub_string).filter((key) => {
-    return sub_string[key] === maxSub_string_Value;
+  const max_sub_string_Value = Math.max(...Object.values(sub_string));
+  const max_sub_string_Keys = Object.keys(sub_string).filter((key) => {
+    return sub_string[key] === max_sub_string_Value;
   });
-  maxSub_string_Keys.sort();
-  return maxSub_string_Keys[0];
+  max_sub_string_Keys.sort();
+  return max_sub_string_Keys[0];
 };
-
+console.log(find_max_ngram("xbcxbcaxbcaxb", 3));
 console.log(find_max_ngram("xbcxbcaxbcaxb", 4));
