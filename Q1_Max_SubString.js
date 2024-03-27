@@ -1,7 +1,7 @@
 const find_max_ngram = (text, length) => {
   text = text.toLowerCase();
   let sub_string = {};
-  for (let i = 0; i < text.length; i++) {
+  for (let i = 0; i <= text.length - length; i++) {
     let newText = text[i];
     for (let j = i + 1; j < i + length; j++) {
       newText += text[j];
@@ -18,3 +18,6 @@ const find_max_ngram = (text, length) => {
 };
 console.log(find_max_ngram("xbcxbcaxbcaxb", 3));
 console.log(find_max_ngram("xbcxbcaxbcaxb", 4));
+console.log(find_max_ngram("abcxabcyabczabcm", 3));
+console.log(find_max_ngram("assassin", 2));
+console.log(find_max_ngram("helloworld", 3));
